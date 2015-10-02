@@ -176,10 +176,10 @@ int					main(void)
 	D_ADD_TEST(strstr);
 #define	D_STRNSTR
 	D_ADD_TEST(strnstr);
-#define	D_STRCMP
-	D_ADD_TEST(strcmp);
-// #define	D_STRNCMP
-// 	D_ADD_TEST(strncmp);
+// #define	D_STRCMP
+// 	D_ADD_TEST(strcmp);
+#define	D_STRNCMP
+	D_ADD_TEST(strncmp);
 #define	D_ATOI
 	D_ADD_HCTEST(atoi);
 #define	D_ISALPHA
@@ -260,7 +260,7 @@ int					main(void)
 		{
 			if (waitpid(pid, &status, 0) != -1)
 			{
-				// printf("WEXITSTATUS(status): %i\n", WEXITSTATUS(status));
+				//printf("WEXITSTATUS(status): %i\n", WEXITSTATUS(status));
 				if (WEXITSTATUS(status) != 0)
 					error_found = 1;
 				if (WIFSIGNALED(status))
@@ -273,6 +273,7 @@ int					main(void)
 						printf("\033[33mIllegal Instruction\033[0m\n");
 					else
 						printf("\033[33mThe processus receive the signal %d\033[0m\n", WTERMSIG(status));
+					error_found = 1;	
 				}
 			}
 			else

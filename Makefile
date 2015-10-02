@@ -140,6 +140,9 @@ norme:
 	@echo "libft Norme checks"
 	@norminette $(S)
 
+test: re
+	make -C tests
+
 $(NAME): $(O) $(EXT)
 	@echo "-> Creating $(NAME)..."
 	@ar rc $(NAME) $(O)
