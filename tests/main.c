@@ -543,7 +543,7 @@ int					uf_test_strsplit(void)
 		return (0);
 	}
 	ret = ft_strsplit("hello", '*');
-	if (ret[1] != NULL && strcmp(ret[0], "hello") != 0)
+	if (ret[1] != NULL || strcmp(ret[0], "hello") != 0)
 	{
 		printf("Error Line %d, Funct %s : \n\033[31mft_strsplit(\"hello\", '*').\nExpected tab[0] = \"hello\" and tab[1] = NULL \
 			   but have tab[0] = \"%s\" and tab[1] = \"%s\"\033[0m\n", __LINE__ - 2, __func__, ret[0], ret[1]);
@@ -556,7 +556,7 @@ int					uf_test_strsplit(void)
 		return (0);
 	}
 	ret = ft_strsplit("*hello", '*');
-	if (ret[1] != NULL && strcmp(ret[0], "hello") != 0)
+	if (ret[1] != NULL || strcmp(ret[0], "hello") != 0)
 	{
 		printf("Error Line %d, Funct %s : \n\033[31mft_strsplit(\"*hello\", '*').\nExpected tab[0] = \"hello\" and tab[1] = NULL \
 			   but have tab[0] = \"%s\" and tab[1] = \"%s\"\033[0m\n", __LINE__ - 2, __func__, ret[0], ret[1]);
@@ -569,7 +569,7 @@ int					uf_test_strsplit(void)
 		return (0);
 	}
 	ret = ft_strsplit("*hello*", '*');
-	if (ret[1] != NULL && strcmp(ret[0], "hello") != 0)
+	if (ret[1] != NULL || strcmp(ret[0], "hello") != 0)
 	{
 		printf("Error Line %d, Funct %s : \n\033[31mft_strsplit(\"*hello*\", '*').\nExpected tab[0] = \"hello\" and tab[1] = NULL \
 			   but have tab[0] = \"%s\" and tab[1] = \"%s\"\033[0m\n", __LINE__ - 2, __func__, ret[0], ret[1]);
@@ -582,7 +582,7 @@ int					uf_test_strsplit(void)
 		return (0);
 	}
 	ret = ft_strsplit("*hel*lo*", '*');
-	if (ret[2] != NULL && strcmp(ret[0], "hel") != 0 && strcmp(ret[1], "lo") != 0)
+	if (ret[2] != NULL || strcmp(ret[0], "hel") != 0 || strcmp(ret[1], "lo") != 0)
 	{
 		printf("Error Line %d, Funct %s : \n\033[31mft_strsplit(\"*hel*lo*\", '*').\nExpected tab[0] = \"hel\", tab[1] = \"lo\" and tab[2] = NULL \
 			   but have tab[0] = \"%s\", tab[1] = \"%s\" and tab[2] = \"%s\"\033[0m\n", __LINE__ - 2, __func__, ret[0], ret[1], ret[2]);
@@ -595,7 +595,7 @@ int					uf_test_strsplit(void)
 		return (0);
 	}
 	ret = ft_strsplit("*hel*lo*f", '*');
-	if (ret[3] != NULL && strcmp(ret[0], "hel") != 0 && strcmp(ret[1], "lo") != 0 &&
+	if (ret[3] != NULL && strcmp(ret[0], "hel") != 0 || strcmp(ret[1], "lo") != 0 &&
 		strcmp(ret[2], "f") != 0)
 	{
 		printf("Error Line %d, Funct %s : \n\033[31mft_strsplit(\"*hel*lo*f\", '*').\nExpected tab[0] = \"hel\", tab[1] = \"lo\", tab[2] = \"f\" and tab[3] = NULL \
@@ -610,7 +610,7 @@ int					uf_test_strsplit(void)
 	}
 	ret = ft_strsplit("g*hel*lo*f", '*');
 	if (ret[4] != NULL && strcmp(ret[0], "g") != 0 && strcmp(ret[1], "hel") != 0 &&
-		strcmp(ret[2], "lo") != 0 && strcmp(ret[3], "f") != 0)
+		strcmp(ret[2], "lo") != 0 || strcmp(ret[3], "f") != 0)
 	{
 		printf("Error Line %d, Funct %s : \n\033[31mft_strsplit(\"g*hel*lo*f\", '*').\nExpected tab[0] = \"g\", tab[1] = \"hel\", tab[2] = \"lo\", tab[3] = \"f\" and tab[4] = NULL \
 			   but have tab[0] = \"%s\", tab[1] = \"%s\", tab[2] = \"%s\", tab[3] = \"%s\" and tab[4] = \"%s\"\033[0m\n", __LINE__ - 2, __func__, ret[0], ret[1], ret[2], ret[3], ret[4]);
@@ -623,7 +623,7 @@ int					uf_test_strsplit(void)
 		return (0);
 	}
 	ret = ft_strsplit("***hel****lo**", '*');
-	if (ret[2] != NULL && strcmp(ret[0], "hel") != 0 && strcmp(ret[1], "lo") != 0)
+	if (ret[2] != NULL || strcmp(ret[0], "hel") != 0 || strcmp(ret[1], "lo") != 0)
 	{
 		printf("Error Line %d, Funct %s : \n\033[31mft_strsplit(\"*hel****lo*\", '*').\nExpected tab[0] = \"hel\", tab[1] = \"lo\" and tab[2] = NULL \
 			   but have tab[0] = \"%s\", tab[1] = \"%s\" and tab[2] = \"%s\"\033[0m\n", __LINE__ - 2, __func__, ret[0], ret[1], ret[2]);
